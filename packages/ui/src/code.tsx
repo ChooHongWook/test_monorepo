@@ -1,9 +1,10 @@
-export function Code({
-  children,
-  className,
-}: {
-  children: React.ReactNode;
+import { ReactNode } from 'react';
+
+interface CodeProps {
+  children: ReactNode;
   className?: string;
-}): JSX.Element {
-  return <code className={className}>{children}</code>;
 }
+
+export const Code = ({ children, className }: CodeProps) => {
+  return <code className={className}>{children}</code>;
+};
