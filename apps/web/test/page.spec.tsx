@@ -1,25 +1,23 @@
-import { render } from '@testing-library/react';
-import { describe, it, expect, jest, afterAll } from '@jest/globals';
+import { describe, it, expect, jest, afterAll } from "@jest/globals";
+import { render } from "@testing-library/react";
 
-import RootPage from '../app/page';
+import RootPage from "../app/page";
 
 window.fetch = jest.fn().mockImplementation(() =>
   Promise.resolve({
     ok: true,
     json: () => [],
-  })
+  }),
 );
 
-describe('Root page', () => {
-  const { container, unmount } = render(
-    <RootPage params={{ forTest: true }} />
-  );
+describe("Root page", () => {
+  const { container, unmount } = render(<RootPage params={{ forTest: true }} />);
 
-  it('should match the snapshot', () => {
+  it("should match the snapshot", () => {
     expect(container).toMatchSnapshot();
   });
 
-  it('should have the correct tree parent', () => {
+  it("should have the correct tree parent", () => {
     expect(container).toBeInstanceOf(HTMLDivElement);
   });
 
